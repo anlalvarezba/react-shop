@@ -8,7 +8,6 @@ const ProductItem = ({product}) => {
 
 	const handleClick = item => {
 		addToCart(item);
-		console.log('handleClick is ok');
 	}
 
 	return (
