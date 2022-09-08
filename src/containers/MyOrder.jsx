@@ -27,7 +27,8 @@ const MyOrder = () => {
 					 <OrderItem product={product} key={`orderItem-${product.id}`} />
 					 )
 				})}
-				<div className="order">
+			</div>
+			<div className="order">
 					<p>
 						<span>Total</span>
 					</p>
@@ -36,7 +37,6 @@ const MyOrder = () => {
 				<button className="primary-button">
 					Checkout
 				</button>
-			</div>
 		</aside>);
 }
 
