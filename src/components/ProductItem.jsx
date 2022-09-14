@@ -4,10 +4,15 @@ import { AppContext } from '../context/AppContext';
 import addToCartImage from '@icons/bt_add_to_cart.svg';
 
 const ProductItem = ({product}) => {
-	const { addToCart } = useContext( AppContext );
+	const { state, addToCart } = useContext( AppContext );
 
 	const handleClick = item => {
-		addToCart(item);
+		if(state.cart.includes(item)){
+			console.log('It was added before.')
+		}
+		else {
+			addToCart(item);
+		}
 	}
 
 	return (
