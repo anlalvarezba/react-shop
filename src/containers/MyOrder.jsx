@@ -5,7 +5,7 @@ import '@styles/MyOrder.scss';
 
 import flechita from '@icons/flechita.svg';
 
-const MyOrder = () => {
+const MyOrder = ({setToggleOrders}) => {
 
 	const { state } = useContext(AppContext);	
 
@@ -18,7 +18,7 @@ const MyOrder = () => {
     return(
 		<aside className="MyOrder">
 			<div className="title-container">
-				<img src={flechita} alt="arrow" />
+				<img src={flechita} alt="arrow" onClick={()=> setToggleOrders(false)} />
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
