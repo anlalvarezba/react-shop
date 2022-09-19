@@ -4,6 +4,7 @@ const initialState={
     cart: [],
 }
 
+
 const useInitialState = () => {
     const [state, setState] = useState(initialState);
     const addToCart = (payload) => {
