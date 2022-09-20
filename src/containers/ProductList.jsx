@@ -4,7 +4,7 @@ import '@styles/ProductList.scss';
 import { useGetProducts } from "../hooks/useGetProducts";
 
 
-const API = 'https://api.escuelajs.co/api/v1/products';
+const API = 'http://api.escuelajs.co/api/v1/products';
 
 const ProductList = () => {
 

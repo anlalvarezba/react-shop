@@ -6,11 +6,13 @@ import { AppContext } from '../context/AppContext';
 import menu from '@icons/icon_menu.svg';
 import logo from '@logos/logo_yard_sale.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
-
+import { Footer } from './Footer';
+import close from '@icons/icon_close.png';
 
 const Header = () => {
     const [toggle, setToggle] = useState(false);
     const [toggleOrders, setToggleOrders] = useState(false);
+    const [toggleMobile, setToggleMobile] = useState(false);
     const { state } = useContext(AppContext);
 
     const handleToggle = () => {
@@ -19,8 +21,8 @@ const Header = () => {
 
     
 
-    return(<nav>
-        <img src={menu} alt="menu" className="menu" />
+    return(<nav className="navbar-desktop">
+        <img src={menu} alt="menu" className="menu" onClick={()=> setToggleMobile(!toggleMobile)}/>
         
         <div className="navbar-left">
           <img src={logo} alt="logo" className="nav-logo" />
@@ -63,6 +65,14 @@ const Header = () => {
         </div>
         {toggle && <Menu />}
         {toggleOrders && <MyOrder setToggleOrders={setToggleOrders} />}
+        {toggleMobile && (<Footer>
+          <img 
+            src={close} 
+            alt='close' 
+            className='navbar-mobile--close'
+            onClick={()=>setToggleMobile(false)}
+            />
+        </Footer>)}
       </nav>
     );
 };
