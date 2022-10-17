@@ -61,6 +61,9 @@
 	font-weight: bold;
 	height: 50px;
 }
+.my-order-arrowback:hover {
+	cursor: pointer;
+}
 @media (max-width: 640px) {
 	.MyOrder {
 		width: 100%;

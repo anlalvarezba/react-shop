@@ -18,7 +18,7 @@ const MyOrder = ({setToggleOrders}) => {
     return(
 		<aside className="MyOrder">
 			<div className="title-container">
-				<img src={flechita} alt="arrow" onClick={()=> setToggleOrders(false)} />
+				<img src={flechita} className="my-order-arrowback" alt="arrow" onClick={()=> setToggleOrders(false)} />
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">

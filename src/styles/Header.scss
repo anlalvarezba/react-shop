@@ -66,6 +66,12 @@
 	justify-content: center;
 	align-items: center;
 }
+.navbar-email:hover {
+	cursor: pointer;
+}
+.navbar-shopping-cart:hover {
+	cursor: pointer;
+}
 @media (max-width: 640px) {
 	.menu {
 		display: block;
@@ -75,6 +81,9 @@
 	}
 	.navbar-email {
 		display: none;
+	}
+	.menu:hover {
+		cursor: pointer;
 	}
 	// .navbar-mobile--close{
 	// 	position: absolute;
