@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import '@styles/Header.scss';
 import { Menu } from './Menu';
 import { MyOrder } from '../containers/MyOrder';
@@ -17,12 +17,15 @@ const Header = () => {
 
     const handleToggle = () => {
       setToggle(!toggle);
+      setToggleOrders(false);
     }
 
     
 
     return(<nav className="navbar-desktop">
-        <img src={menu} alt="menu" className="menu" onClick={()=> setToggleMobile(!toggleMobile)}/>
+        <img src={menu} alt="menu" className="menu" onClick={()=> {
+          setToggleOrders(false);
+          setToggleMobile(!toggleMobile)}}/>
         
         <div className="navbar-left">
           <img src={logo} alt="logo" className="nav-logo" />
@@ -56,7 +59,11 @@ const Header = () => {
             </li>
             <li 
               className="navbar-shopping-cart"
-              onClick={()=>{setToggleOrders(!toggleOrders)}}
+              onClick={()=>{
+                setToggleOrders(!toggleOrders);
+                setToggleMobile(false);
+                setToggle(false);
+              }}
             >
               <img src={shoppingCart} alt="shopping cart" />
               {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
@@ -64,15 +71,17 @@ const Header = () => {
           </ul>
         </div>
         {toggle && <Menu />}
-        {toggleOrders && <MyOrder setToggleOrders={setToggleOrders} />}
         {toggleMobile && (<Footer>
           <img 
             src={close} 
             alt='close' 
             className='navbar-mobile--close'
-            onClick={()=>setToggleMobile(false)}
+            onClick={()=>{
+              setToggleMobile(false);
+            }}
             />
         </Footer>)}
+        {toggleOrders && <MyOrder setToggleOrders={setToggleOrders} />}
       </nav>
     );
 };
